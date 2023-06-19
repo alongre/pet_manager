@@ -1,5 +1,6 @@
 import type { V2_MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import db from '~/services/db';
 import Card from '~/components/Card';
 import Grid from '~/components/Grid';
 import Navigation from '~/layouts/Navigation';
@@ -8,13 +9,10 @@ export const meta: V2_MetaFunction = () => {
 	return [{ title: 'New Remix App' }, { name: 'description', content: 'Welcome to Remix!' }];
 };
 
-export function loader() {
+export async function loader() {
+	const pets = await db.pet.findMany();
 	return {
-		data: [
-			{ name: 'Nugget', type: 'dog' },
-			{ name: 'Thor', type: 'dog' },
-			{ name: 'Mittens', type: 'cat' },
-		],
+		data: pets,
 	};
 }
 

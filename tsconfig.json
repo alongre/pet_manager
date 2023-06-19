@@ -15,6 +15,7 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"jsx": "react-jsx",
+		"allowImportingTsExtensions": true,
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"target": "ES2019",
