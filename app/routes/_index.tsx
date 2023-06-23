@@ -22,7 +22,7 @@ export default function Index() {
 		<Navigation title='Pets'>
 			<Grid
 				items={pets.map((pet) => (
-					<Card key={pet.name} title={pet.name} type={pet.type}></Card>
+					<Card to={`/pet/${pet.id}`} key={pet.name} title={pet.name} type={pet.type}></Card>
 				))}
 			></Grid>
 		</Navigation>
