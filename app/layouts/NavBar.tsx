@@ -13,7 +13,7 @@ type Props = {
  * title: string,
  * }>}
  */
-export default function Navigation(props: Props): React.ReactNode {
+export default function NavBar(props: Props): React.ReactNode {
 	const { title, styles } = props;
 	let newTitle: any = '';
 	if (title && typeof title === 'string') {
@@ -22,7 +22,10 @@ export default function Navigation(props: Props): React.ReactNode {
 	return (
 		<>
 			<header role='banner' className='text-light bg-secondary'>
-				<nav role='navigation' className='flex items-center justify-center sm:justify-between flex-wrap gap-4 max-w-2xl m-auto p-4 text-center'>
+				<nav
+					role='navigation'
+					className='flex items-center justify-center sm:justify-between flex-wrap gap-4 max-w-2xl m-auto p-4 text-center'
+				>
 					<NavLink to='/'>
 						<span className='flex items-center gap-2 flex-wrap justify-center text-2xl'>
 							<Svg icon='paw-print' className='text-4xl' />

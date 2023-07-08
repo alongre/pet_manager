@@ -1,5 +1,5 @@
 import { redirect } from '@remix-run/node';
-import Navigation from '~/layouts/Navigation';
+import NavBar from '~/layouts/NavBar';
 import type { ActionArgs } from '@remix-run/node';
 import { z } from 'zod';
 import db from '~/services/db';
@@ -44,7 +44,7 @@ export async function action({ request }: ActionArgs) {
 
 export default function () {
 	return (
-		<Navigation title='Create'>
+		<NavBar title='Create'>
 			<Form method='POST' className='grid gap-4'>
 				<Input name='name' label='Name' id='name' required />
 				<Input name='type' label='Type' id='type' type='select' options={['', ...typeOptions]} defaultValue='dog' />
@@ -58,6 +58,6 @@ export default function () {
 					<Link to='/'>Cancel</Link>
 				</div>
 			</Form>
-		</Navigation>
+		</NavBar>
 	);
 }

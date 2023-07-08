@@ -3,7 +3,7 @@ import { useLoaderData } from '@remix-run/react';
 import db from '~/services/db';
 import Card from '~/components/Card';
 import Grid from '~/components/Grid';
-import Navigation from '~/layouts/Navigation';
+import NavBar from '~/layouts/NavBar';
 
 export const meta: V2_MetaFunction = () => {
 	return [{ title: 'New Remix App' }, { name: 'description', content: 'Welcome to Remix!' }];
@@ -19,12 +19,12 @@ export async function loader() {
 export default function Index() {
 	const { data: pets } = useLoaderData<typeof loader>();
 	return (
-		<Navigation title='Pets'>
+		<NavBar title='Pets'>
 			<Grid
 				items={pets.map((pet) => (
 					<Card to={`/pet/${pet.id}`} key={pet.name} title={pet.name} type={pet.type}></Card>
 				))}
 			></Grid>
-		</Navigation>
+		</NavBar>
 	);
 }
